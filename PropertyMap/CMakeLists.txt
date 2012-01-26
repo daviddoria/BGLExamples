@@ -1,0 +1,3 @@
+add_subdirectory(Dynamic)
+add_subdirectory(Interior)
+add_subdirectory(Exterior)

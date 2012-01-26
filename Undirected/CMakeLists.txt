@@ -1,0 +1,7 @@
+add_subdirectory(UndirectedIterateEdges)
+add_subdirectory(RemoveEdge)
+add_subdirectory(UndirectedGraph)
+add_subdirectory(UndirectedWeighted)
+add_subdirectory(UndirectedIterateVertices)
+add_subdirectory(RemoveVertex)
+add_subdirectory(UndirectedVertexProperties)
