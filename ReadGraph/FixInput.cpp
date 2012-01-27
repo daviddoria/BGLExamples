@@ -123,7 +123,7 @@ Graph ReadGraph()
   boost::property_map<GraphFromFile, boost::vertex_name_t>::type value = get(boost::vertex_name_t(), graphFromFile);
   
   // Create a new graph of the desired type
-  Graph graph(boost::num_vertices(graphFromFile));
+  Graph graph(num_vertices(graphFromFile));
   
   // Iterate over the edges of the input graph and create edges in the output graph on the corresponding vertices
   std::pair<GraphFromFile::edge_iterator, GraphFromFile::edge_iterator> edgePair;

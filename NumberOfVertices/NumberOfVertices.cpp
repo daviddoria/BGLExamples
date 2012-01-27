@@ -12,6 +12,6 @@ int main(int,char*[])
   Graph g;
 
   Graph::vertex_descriptor v0 = g.add_vertex();
-  std::cout << "There are " << boost::num_vertices(g) << " vertices." << std::endl;
+  std::cout << "There are " << num_vertices(g) << " vertices." << std::endl;
   return 0;
 }

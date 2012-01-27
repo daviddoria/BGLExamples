@@ -84,7 +84,7 @@ int main(int, char *[])
 
   // Output results
   std::cout << "distances and parents:" << std::endl;
-  NameMap nameMap = boost::get(boost::vertex_name, g);
+  NameMap nameMap = get(boost::vertex_name, g);
 
   BGL_FORALL_VERTICES(v, g, Graph)
   {

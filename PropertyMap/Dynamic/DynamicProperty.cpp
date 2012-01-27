@@ -8,7 +8,6 @@
 
 void manipulate_freds_info(boost::dynamic_properties& properties)
 {
-  using boost::get;
   std::string fred = "Fred";
 
   int old_age = get<int>("age", properties, fred);
@@ -25,8 +24,6 @@ void manipulate_freds_info(boost::dynamic_properties& properties)
 
 int main()
 {
-  using boost::get;
-
   // build property maps using associative_property_map
   std::map<std::string, int> name2age;
   std::map<std::string, double> name2gpa;

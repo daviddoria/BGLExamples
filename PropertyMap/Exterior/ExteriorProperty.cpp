@@ -28,9 +28,9 @@ int main(int,char*[])
 //   VertexType v = boost::add_vertex(g);
 //   float p = 0.0f;
 // 
-//   boost::put(propertyMap, v, p);
+//   put(propertyMap, v, p);
 //   
-//   float retrieved = boost::get(propertyMap, v);
+//   float retrieved = get(propertyMap, v);
 
   return 0;
 }

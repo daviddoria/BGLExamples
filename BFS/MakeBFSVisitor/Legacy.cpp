@@ -24,7 +24,7 @@ int main()
 
   // a vector to hold the discover time property for each vertex
   Size time = 0;
-  std::vector<Size> discoverTime(boost::num_vertices(g));
+  std::vector<Size> discoverTime(num_vertices(g));
 
   // not the correct return type template parameters
   //boost::bfs_visitor<> visitor = boost::make_bfs_visitor(boost::stamp_times(discoverTime.begin(), time, boost::on_discover_vertex()));

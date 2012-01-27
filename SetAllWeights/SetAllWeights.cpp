@@ -31,7 +31,7 @@ int main(int,char*[])
   std::pair<edge_iter, edge_iter> edgePair;
   for(edgePair = edges(g); edgePair.first != edgePair.second; ++edgePair.first)
   {
-    boost::put( boost::edge_weight, g, *edgePair.first, 3.1 );
+    put( boost::edge_weight, g, *edgePair.first, 3.1 );
   }
   
   

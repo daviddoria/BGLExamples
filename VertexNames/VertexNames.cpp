@@ -23,8 +23,8 @@ int main(int,char*[])
   //g[v0] = "Vertex0";
   
   // This works
-  boost::property_map<Graph, boost::vertex_name_t>::type value = boost::get(boost::vertex_name_t(), g);
-  boost::put(value, v0, "Vertex0");
+  boost::property_map<Graph, boost::vertex_name_t>::type value = get(boost::vertex_name_t(), g);
+  put(value, v0, "Vertex0");
 
   // This does not work
   //Graph::vertex_descriptor v1 = g.add_vertex("Vertex1");
@@ -43,7 +43,7 @@ int main(int,char*[])
 
   typedef Graph::vertex_iterator vertex_iter;
   std::pair<vertex_iter, vertex_iter> vertexPair;
-  for (vertexPair = boost::vertices(g); vertexPair.first != vertexPair.second; ++vertexPair.first)
+  for (vertexPair = vertices(g); vertexPair.first != vertexPair.second; ++vertexPair.first)
     {
     std::cout << index[*vertexPair.first] <<  " : " << value[*vertexPair.first] << std::endl;
     }

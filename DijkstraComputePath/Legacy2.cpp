@@ -68,7 +68,7 @@ int main(int, char *[])
   std::vector<Weight> distances(num_vertices(g)); // To store distances
 /* works
 //////////////
-  IndexMap indexMap = boost::get(boost::vertex_index, g);
+  IndexMap indexMap = get(boost::vertex_index, g);
   PredecessorMap predecessorMap(&predecessors[0], indexMap);
   DistanceMap distanceMap(&distances[0], indexMap);
 

@@ -26,11 +26,11 @@ int main(int,char*[])
   add_edge(v1,v2,g);
 
   
-  //boost::put(boost::get(&MyProperty::MyIntProperty, g), e01.first, 5);
+  //put(get(&MyProperty::MyIntProperty, g), e01.first, 5);
   
-  //boost::property_map<Graph, int MyProperty::*>::type MyIntPropertyMap = boost::get(&MyProperty::MyIntProperty, g);
-  //boost::put(MyIntPropertyMap, 0, 5);
-  //boost::put(MyIntPropertyMap, e01.first, 5);
+  //boost::property_map<Graph, int MyProperty::*>::type MyIntPropertyMap = get(&MyProperty::MyIntProperty, g);
+  //put(MyIntPropertyMap, 0, 5);
+  //put(MyIntPropertyMap, e01.first, 5);
   //std::cout << MyIntPropertyMap[0];
   
   

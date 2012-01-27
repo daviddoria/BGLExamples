@@ -37,12 +37,12 @@ int main(int,char*[])
   // Assign "21" as the Id of the 0th vertex, and "34" as the Id of the 1st vertex
   typedef boost::graph_traits<Graph>::vertex_iterator VItr;
   VItr vitr, vend;
-  boost::tie( vitr, vend) = boost::vertices(g);
+  boost::tie( vitr, vend) = vertices(g);
   g[*vitr].Id = 21;
   vitr++;
   g[*vitr].Id = 34;
 
-  boost::tie( vitr, vend) = boost::vertices(g);
+  boost::tie( vitr, vend) = vertices(g);
   for ( ; vitr != vend ; ++vitr )
     std::cout << g[*vitr].Id << "\n";
   }

@@ -59,7 +59,7 @@ int main(int argc, char*argv[])
 
   bool status = boost::read_graphviz(fin,graph,dp,"node_id");
 
-  std::cout << "There are " << boost::num_vertices(graph) << " vertices." << std::endl;
+  std::cout << "There are " << num_vertices(graph) << " vertices." << std::endl;
   
   return 0;
 }

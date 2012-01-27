@@ -16,8 +16,8 @@ int main(int,char*[])
   add_edge(1, 3, g);
 
   int time = 0;
-  std::vector<double> dtime(boost::num_vertices(g));
-  std::vector<double> ftime(boost::num_vertices(g));
+  std::vector<double> dtime(num_vertices(g));
+  std::vector<double> ftime(num_vertices(g));
 
   boost::breadth_first_search(g,
     boost::make_bfs_visitor(
@@ -26,7 +26,7 @@ int main(int,char*[])
   );
 
   /*
-  boost::breadth_first_search(g, *boost::vertices(g).first,
+  boost::breadth_first_search(g, *vertices(g).first,
     visitor(boost::make_bfs_visitor(
      std::make_pair(boost::stamp_times(dtime.begin(), time, boost::on_discover_vertex()),
                     boost::stamp_times(ftime.begin(), time, boost::on_finish_vertex()))))

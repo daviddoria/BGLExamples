@@ -17,13 +17,13 @@ int main(int,char*[])
   // Create a graph object
   Graph g(2);
 
-  boost::property_map<Graph, int MyProperty::*>::type MyIntPropertyMap = boost::get(&MyProperty::MyIntProperty, g);
-  boost::put(MyIntPropertyMap, 0, 5);
-  boost::put(MyIntPropertyMap, 1, 10);
+  boost::property_map<Graph, int MyProperty::*>::type MyIntPropertyMap = get(&MyProperty::MyIntProperty, g);
+  put(MyIntPropertyMap, 0, 5);
+  put(MyIntPropertyMap, 1, 10);
 
-  boost::property_map<Graph, std::string MyProperty::*>::type MyStringPropertyMap = boost::get(&MyProperty::MyStringProperty, g);
-  boost::put(MyStringPropertyMap, 0, "TestName0");
-  boost::put(MyStringPropertyMap, 1, "TestName1");
+  boost::property_map<Graph, std::string MyProperty::*>::type MyStringPropertyMap = get(&MyProperty::MyStringProperty, g);
+  put(MyStringPropertyMap, 0, "TestName0");
+  put(MyStringPropertyMap, 1, "TestName1");
 
   typedef boost::property_map<Graph, boost::vertex_index_t>::type IndexMap;
   IndexMap index = get(boost::vertex_index, g);

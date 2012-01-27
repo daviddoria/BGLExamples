@@ -31,12 +31,12 @@ int main()
   
   // a vector to hold the discover time property for each vertex
   unsigned int time = 0;
-  Size discoverTime[ boost::num_vertices(g) ];
+  Size discoverTime[ num_vertices(g) ];
 
   boost::breadth_first_search(g, 0u, boost::visitor( boost::make_bfs_visitor(  
   boost::stamp_times(discoverTime, time, boost::on_discover_vertex() ))));
   
-  for(unsigned int m=0;m<boost::num_vertices(g);++m)
+  for(unsigned int m = 0; m < num_vertices(g);++m)
   {
     std::cout << "v=" << m << " dTime=" << discoverTime[m] << std::endl;;
   }
