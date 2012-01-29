@@ -17,12 +17,12 @@ int main(int,char*[])
   Graph g;
   
   // Add vertices to the graph
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
-  Graph::vertex_descriptor v2 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v2 = boost::add_vertex(g);
 
   // Create weighted edges
-  std::pair<Graph::edge_descriptor, bool> e01 = add_edge(v0,v1,g);
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> e01 = add_edge(v0,v1,g);
   add_edge(v1,v2,g);
 
   

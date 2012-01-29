@@ -30,8 +30,8 @@ int main(int argc, char*argv[])
 
 void OutputEdges(const Graph& g)
 {
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> edgeIteratorRange = edges(g);
-  for(Graph::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> edgeIteratorRange = edges(g);
+  for(boost::graph_traits<Graph>::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
     {
       std::cout << "Edge exists between " << target(*edgeIterator, g) << " and " 
                 <<  source(*edgeIterator, g) << std::endl;

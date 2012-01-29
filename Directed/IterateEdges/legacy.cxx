@@ -11,15 +11,15 @@ int main(int,char*[])
   // Create a graph object
   Graph g;
   /*
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
   */
 
-  Graph::vertex_descriptor v0 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = add_vertex(g);
   std::cout << v0;
 
-  Graph::vertex_descriptor v1 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = add_vertex(g);
   std::cout << v1;
 /*
   add_edge(v0,v1,g);
@@ -79,8 +79,8 @@ int main(int,char*[])
   }
   std::cout << std::endl;
 */
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> edgeIteratorRange = edges(g);
-  for(Graph::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> edgeIteratorRange = edges(g);
+  for(boost::graph_traits<Graph>::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
    {
      std::cout << g[*edgeIterator].first << std::endl;
    }

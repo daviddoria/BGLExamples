@@ -29,15 +29,15 @@ int main(int argc, char*argv[])
     //get(boost::vertex_name, graph);
   //dp.property("node_id",name);
   
-  //dp.property("node_id", boost::make_null_property<Graph::vertex_descriptor, std::string>());
+  //dp.property("node_id", boost::make_null_property<boost::graph_traits<Graph>::vertex_descriptor, std::string>());
   
-  //dp.property("node_id", boost::dummy_property_map<Graph::vertex_descriptor, std::string>()); // dummy_property_map is not a template
+  //dp.property("node_id", boost::dummy_property_map<boost::graph_traits<Graph>::vertex_descriptor, std::string>()); // dummy_property_map is not a template
   //dp.property("node_id", boost::dummy_property_map()); // "error: invalid use of void expression"
   //dp.property("node_id", boost::dummy_property_map);
-  //dp.property("node_id", boost::static_property_map<Graph::vertex_descriptor>()); // error: no matching function for call to ‘boost::static_property_map<unsigned int>::static_property_map()’
+  //dp.property("node_id", boost::static_property_map<boost::graph_traits<Graph>::vertex_descriptor>()); // error: no matching function for call to ‘boost::static_property_map<unsigned int>::static_property_map()’
   
-  //dp.property("node_id", boost::ref_property_map<Graph::vertex_descriptor, std::string>()); // error: no matching function for call to ‘boost::ref_property_map<unsigned int, std::basic_string<char> >::ref_property_map()’
-  //dp.property("node_id", boost::ref_property_map<Graph::vertex_descriptor, std::string>);
+  //dp.property("node_id", boost::ref_property_map<boost::graph_traits<Graph>::vertex_descriptor, std::string>()); // error: no matching function for call to ‘boost::ref_property_map<unsigned int, std::basic_string<char> >::ref_property_map()’
+  //dp.property("node_id", boost::ref_property_map<boost::graph_traits<Graph>::vertex_descriptor, std::string>);
 
   std::string s;
   dp.property("node_id", boost::static_property_map<std::string>(s));
@@ -58,8 +58,8 @@ int main(int argc, char*argv[])
 
 void OutputEdges(const Graph& g)
 {
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> edgeIteratorRange = edges(g);
-  for(Graph::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> edgeIteratorRange = edges(g);
+  for(boost::graph_traits<Graph>::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
     {
       std::cout << "Edge exists between " << target(*edgeIterator, g) << " and " 
                 <<  source(*edgeIterator, g) << std::endl;

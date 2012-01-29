@@ -27,8 +27,8 @@ struct EdgeProperties
 };
 
 typedef boost::adjacency_list< boost::setS, boost::vecS, boost::undirectedS, boost::no_property, EdgeProperties > Graph;
-typedef Graph::vertex_descriptor Vertex;
-typedef Graph::edge_descriptor Edge;
+typedef boost::graph_traits<Graph>::vertex_descriptor Vertex;
+typedef boost::graph_traits<Graph>::edge_descriptor Edge;
 
 void WriteGraph(const Graph& g, const std::string& filename);
 

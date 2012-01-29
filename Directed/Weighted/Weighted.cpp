@@ -12,9 +12,9 @@ int main(int,char*[])
   Graph g;
   
   // Add vertices to the graph
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
 
   // Create weighted edges
   EdgeWeightProperty weight0 = 5;
@@ -28,16 +28,16 @@ int main(int,char*[])
   typedef boost::property_map<Graph, boost::edge_weight_t>::type EdgeWeightMap;
   EdgeWeightMap edgeWeightMap = get(boost::edge_weight, g);
 
-  std::pair<Graph::edge_descriptor, bool> edgePair = boost::edge(v0, v1, g);
-  Graph::edge_descriptor edge = edgePair.first;
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> edgePair = boost::edge(v0, v1, g);
+  boost::graph_traits<Graph>::edge_descriptor edge = edgePair.first;
 
   std::cout << "Edge (" << v0 << ", " << v1 << ") has weight " << edgeWeightMap[edge] << std::endl;
   }
 
   // method 2
   {
-  std::pair<Graph::edge_descriptor, bool> edgePair = edge(v0, v1, g);
-  Graph::edge_descriptor edge = edgePair.first;
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> edgePair = edge(v0, v1, g);
+  boost::graph_traits<Graph>::edge_descriptor edge = edgePair.first;
   std::cout << std::cout << "Edge (" << v0 << ", " << v1 << ") has weight " << get( boost::edge_weight, g, edge ) << std::endl;
   }
 

@@ -24,7 +24,7 @@ struct CompositeDescriptor
 template <typename TGraph>
 struct ComputeFeatureVector
 {
-  void Compute(TGraph g, typename TGraph::vertex_descriptor vertexToSet)
+  void Compute(TGraph g, typename boost::graph_traits<TGraph>::vertex_descriptor vertexToSet)
   {
     std::vector<float> featureVector;
     g[vertexToSet].FeatureVector = featureVector;
@@ -34,7 +34,7 @@ struct ComputeFeatureVector
 template <typename TGraph>
 struct ComputeImagePatch
 {
-  void Compute(TGraph g, typename TGraph::vertex_descriptor vertexToSet)
+  void Compute(TGraph g, typename boost::graph_traits<TGraph>::vertex_descriptor vertexToSet)
   {
     Image image;
     g[vertexToSet].image = image;
@@ -73,9 +73,9 @@ public:
   void CreateGraph()
   {
     // Create two vertices (pixels) and an edge
-    typename TGraph::vertex_descriptor v0 = boost::add_vertex(g);
+    typename boost::graph_traits<TGraph>::vertex_descriptor v0 = boost::add_vertex(g);
 
-    typename TGraph::vertex_descriptor v1 = boost::add_vertex(g);
+    typename boost::graph_traits<TGraph>::vertex_descriptor v1 = boost::add_vertex(g);
     // g[v1].A = 5;
 
     add_edge(v0, v1, g);
@@ -93,7 +93,7 @@ public:
     std::pair<vertex_iter, vertex_iter> firstLastPair;
     for (firstLastPair = vertices(g); firstLastPair.first != firstLastPair.second; ++firstLastPair.first)
     {
-      typename TGraph::vertex_descriptor currentVertex = *firstLastPair.first;
+      typename boost::graph_traits<TGraph>::vertex_descriptor currentVertex = *firstLastPair.first;
       descriptorComputer.Compute(g, currentVertex);
     }
     std::cout << std::endl;

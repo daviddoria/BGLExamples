@@ -1,31 +1,15 @@
-/*
- * This example demonstrates 3 ways to construct a graph.
- */
-
 // STL
 #include <iostream>                  // for std::cout
 
 // Boost
 #include <boost/graph/adjacency_list.hpp> // for customizable graphs
-#include <boost/graph/directed_graph.hpp> // A subclass to provide reasonable arguments to adjacency_list for a typical directed graph
-#include <boost/graph/undirected_graph.hpp>// A subclass to provide reasonable arguments to adjacency_list for a typical undirected graph
 
 void AdjacencyList();
-void UndirectedGraph();
-void DirectedGraph();
+
 
 int main(int,char*[])
 {
-  AdjacencyList();
-  UndirectedGraph();
-  DirectedGraph();
-
-  return 0;
-}
-
-void AdjacencyList()
-{
-  /* Method 1: The most generic
+  /*
   * The generic class for a graph in Boost is adjacency_list.
   * Up to 7 template parameters can be given, for example:
   * typedef boost::adjacency_list<     boost::listS,             // out-edges stored in a std::list
@@ -63,36 +47,15 @@ void AdjacencyList()
   // and then add the edges by referencing these descriptors. Note this is a very generic method, so it would work just as well with a vecS vertex container.
 
   Graph g; // Create a graph.
-  Graph::vertex_descriptor v0 = add_vertex(g);
-  Graph::vertex_descriptor v1 = add_vertex(g);
-  Graph::vertex_descriptor v2 = add_vertex(g);
-  
+  boost::graph_traits<Graph>::vertex_descriptor v0 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v2 = add_vertex(g);
+
   add_edge(v0, v1, g);
   add_edge(v1, v2, g);
 
   }
-}
-
-void UndirectedGraph()
-{
-  // undirected_graph is a subclass of adjacency_list which gives you object oriented access to functions like add_vertex and add_edge, which makes the code easier to understand. However, it hard codes many of the template parameters, so it is much less flexible.
-
-  typedef boost::undirected_graph<> Graph;
-  Graph g;
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-
-  g.add_edge(v0, v1);
-}
-
-void DirectedGraph()
-{
-  // directed_graph is a subclass of adjacency_list which gives you object oriented access to functions like add_vertex and add_edge, which makes the code easier to understand. However, it hard codes many of the template parameters, so it is much less flexible.
   
-  typedef boost::directed_graph<> Graph;
-  Graph g;
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
 
-  g.add_edge(v0, v1);
+  return 0;
 }

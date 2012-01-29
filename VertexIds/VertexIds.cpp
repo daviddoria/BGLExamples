@@ -9,10 +9,10 @@ int main(int,char*[])
   typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS> Graph;
   Graph g;
 
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
   std::cout << v0 << std::endl;
 
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
   std::cout << v1 << std::endl;
   }
 
@@ -23,10 +23,10 @@ int main(int,char*[])
   typedef boost::adjacency_list<boost::vecS, boost::setS, boost::undirectedS> Graph;
   Graph g;
 
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
   std::cout << v0 << std::endl; // This is the void* pointer which is the vertex_descriptor
 
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
   std::cout << v1 << std::endl; // This is the void* pointer which is the vertex_descriptor
 
   boost::graph_traits<Graph>::vertex_descriptor test = boost::add_vertex(g);

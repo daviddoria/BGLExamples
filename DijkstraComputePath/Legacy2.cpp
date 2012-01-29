@@ -102,14 +102,14 @@ int main(int, char *[])
   // Extract a shortest path
   std::cout << std::endl;
   
-  std::vector<Graph::edge_descriptor> path;
+  std::vector<boost::graph_traits<Graph>::edge_descriptor> path;
   
   Vertex v = v3; // We want to start at the destination and work our way back to the source
   for(Vertex u = predecessorMap[v]; // Start by setting 'u' to the destintaion node's predecessor
       u != v; // Keep tracking the path until we get to the source
       v = u, u = predecessorMap[v]) // Set the current vertex to the current predecessor, and the predecessor to one level up
   {
-    Graph::edge_descriptor edge;
+    boost::graph_traits<Graph>::edge_descriptor edge;
     /*
     edge.Source = u;
     edge.target = v;

@@ -17,7 +17,7 @@ int main(int,char*[])
   // Create a graph object
   Graph g;
 
-  Graph::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
   
   // This does not work
   //g[v0] = "Vertex0";
@@ -36,12 +36,12 @@ int main(int,char*[])
   // This works
   VertexProperty v1name("Vertex1"); // Note that duplicate names are allowed
 
-  Graph::vertex_descriptor v1 = g.add_vertex(v1name);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex(v1name);
   
   typedef boost::property_map<Graph, boost::vertex_index_t>::type IndexMap;
   IndexMap index = get(boost::vertex_index, g);
 
-  typedef Graph::vertex_iterator vertex_iter;
+  typedef boost::graph_traits<Graph>::vertex_iterator vertex_iter;
   std::pair<vertex_iter, vertex_iter> vertexPair;
   for (vertexPair = vertices(g); vertexPair.first != vertexPair.second; ++vertexPair.first)
     {

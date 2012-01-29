@@ -15,8 +15,8 @@ int main(int,char*[])
   
   // Create a graph object
   Graph g;
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
 
   g[v0].Id = 21;
   g[v1].Id = 34;

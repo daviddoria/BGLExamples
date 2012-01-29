@@ -34,9 +34,9 @@ int main(int argc, char*argv[])
   Graph g;
 
   // Add 3 vertices
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
 
   // Setup "styles" for the edges
   StyleProperty styleInvisible;

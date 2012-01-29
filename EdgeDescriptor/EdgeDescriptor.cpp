@@ -8,10 +8,10 @@ int main(int,char*[])
 {
   // Create a graph object
   Graph g;
-  Graph::vertex_descriptor v0 = add_vertex(g);
-  Graph::vertex_descriptor v1 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = add_vertex(g);
 
-  std::pair<Graph::edge_descriptor, bool> e1 = add_edge(v0, v1, g);
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> e1 = add_edge(v0, v1, g);
   
   return 0;
 }

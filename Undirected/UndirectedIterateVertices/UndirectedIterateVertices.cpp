@@ -16,9 +16,9 @@ int main(int,char*[])
 {
   // Create a graph object
   Graph g;
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
 
   EdgeWeightProperty e1 = 5;
   g.add_edge(v0, v1, e1);

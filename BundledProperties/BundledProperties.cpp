@@ -24,11 +24,11 @@ int main(int,char*[])
   Graph g;
 
   // Add two vertices
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
 
   // Add an edge
-  std::pair<Graph::edge_descriptor, bool> e01 = add_edge(v0, v1, g);
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> e01 = add_edge(v0, v1, g);
 
   // Set and output the properties of a single vertex
   g[v0].VertexIntProperty = 5;
@@ -41,8 +41,8 @@ int main(int,char*[])
   std::cout << g[e01.first].EdgeIntProperty <<  " : " << g[e01.first].EdgeStringProperty <<  std::endl;
   
   // Set and output the properties of each vertex
-  std::pair<Graph::vertex_iterator, Graph::vertex_iterator> vertexIteratorRange = vertices(g);
-  for(Graph::vertex_iterator vertexIterator = vertexIteratorRange.first; vertexIterator != vertexIteratorRange.second; ++vertexIterator)
+  std::pair<boost::graph_traits<Graph>::vertex_iterator, boost::graph_traits<Graph>::vertex_iterator> vertexIteratorRange = vertices(g);
+  for(boost::graph_traits<Graph>::vertex_iterator vertexIterator = vertexIteratorRange.first; vertexIterator != vertexIteratorRange.second; ++vertexIterator)
     {
     g[*vertexIterator].VertexIntProperty = 5;
     g[*vertexIterator].VertexStringProperty = "test";
@@ -50,8 +50,8 @@ int main(int,char*[])
     }
 
   // Set and output the properties of each edge
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> edgeIteratorRange = edges(g);
-  for(Graph::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> edgeIteratorRange = edges(g);
+  for(boost::graph_traits<Graph>::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
     {
     g[*edgeIterator].EdgeIntProperty = 5;
     g[*edgeIterator].EdgeStringProperty = "test";

@@ -11,7 +11,7 @@ int main(int,char*[])
   // Create a graph object
   Graph g;
 
-  Graph::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
   std::cout << "There are " << num_vertices(g) << " vertices." << std::endl;
   return 0;
 }

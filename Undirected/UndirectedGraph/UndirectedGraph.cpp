@@ -1,4 +1,3 @@
-#include <iostream>
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/undirected_graph.hpp>
 
@@ -10,9 +9,9 @@ int main(int,char*[])
   Graph g;
   
   // Add vertices
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
 
   // Add edges
   g.add_edge(v0, v1);

@@ -10,7 +10,7 @@ typedef boost::property<boost::edge_weight_t, float> EdgeWeightProperty;
 typedef boost::adjacency_list < boost::listS, boost::vecS, boost::directedS,
   boost::no_property, EdgeWeightProperty > Graph;
 
-typedef Graph::vertex_descriptor vertex_descriptor;
+typedef boost::graph_traits<Graph>::vertex_descriptor vertex_descriptor;
 
 std::vector<unsigned int> GetShortestPath(Graph& g, vertex_descriptor start, vertex_descriptor end);
 std::vector<unsigned int> ReverseVector(std::vector<unsigned int> &v);
@@ -93,7 +93,7 @@ v1---------- v3
   return EXIT_SUCCESS;
 }
 
-std::vector<unsigned int> GetShortestPath(Graph& g, Graph::vertex_descriptor start, Graph::vertex_descriptor end)
+std::vector<unsigned int> GetShortestPath(Graph& g, boost::graph_traits<Graph>::vertex_descriptor start, boost::graph_traits<Graph>::vertex_descriptor end)
 {
   // Create things for Dijkstra
   std::vector<vertex_descriptor> parents(num_vertices(g)); // To store parents

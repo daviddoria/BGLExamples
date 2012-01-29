@@ -27,10 +27,10 @@ int main(int,char*[])
   // Declare a graph object
   Graph g;
 
-  Graph::vertex_descriptor v0 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
   g[v0].A = 4;
 
-  Graph::vertex_descriptor v1 = boost::add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
   g[v1].A = 5;
 
   // Add edges.
@@ -44,7 +44,7 @@ int main(int,char*[])
   std::pair<vertex_iter, vertex_iter> firstLastPair;
   for (firstLastPair = vertices(g); firstLastPair.first != firstLastPair.second; ++firstLastPair.first)
   {
-    Graph::vertex_descriptor currentVertex = *firstLastPair.first;
+    boost::graph_traits<Graph>::vertex_descriptor currentVertex = *firstLastPair.first;
     std::cout << "Vertex A value: " << g[currentVertex].A << std::endl;
   }
   std::cout << std::endl;

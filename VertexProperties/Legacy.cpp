@@ -41,7 +41,7 @@ int main(int,char*[])
   // Create a graph object
   Graph g;
 
-  Graph::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
 
   // This does not work
   //g[v0] = "Vertex0";
@@ -51,7 +51,7 @@ int main(int,char*[])
   put(value, v0, "Vertex0");
 
   // This does not work
-  //Graph::vertex_descriptor v1 = g.add_vertex("Vertex1");
+  //boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex("Vertex1");
 
   // This works
   //VertexProperty v1name;
@@ -60,7 +60,7 @@ int main(int,char*[])
   // This works
   VertexProperty v1name("Vertex1"); // Note that duplicate names are allowed
 
-  Graph::vertex_descriptor v1 = g.add_vertex(v1name);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex(v1name);
 
   typedef boost::property_map<Graph, boost::vertex_index_t>::type IndexMap;
   IndexMap index = get(boost::vertex_index, g);

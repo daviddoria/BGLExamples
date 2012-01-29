@@ -31,8 +31,9 @@ void Test(const Graph& g)
  
   // Set the 10th edge of the copied graph to invisible
   unsigned int counter = 0;
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> copiedGraphOriginalIteratorRange = edges(copiedGraph);
-  for(Graph::edge_iterator copiedGraphOriginalEdgeIterator = copiedGraphOriginalIteratorRange.first; copiedGraphOriginalEdgeIterator != copiedGraphOriginalIteratorRange.second; ++copiedGraphOriginalEdgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> copiedGraphOriginalIteratorRange = edges(copiedGraph);
+  for(boost::graph_traits<Graph>::edge_iterator copiedGraphOriginalEdgeIterator = copiedGraphOriginalIteratorRange.first;
+      copiedGraphOriginalEdgeIterator != copiedGraphOriginalIteratorRange.second; ++copiedGraphOriginalEdgeIterator)
     {
     if(counter == 10)
       {
@@ -45,8 +46,8 @@ void Test(const Graph& g)
 
   // Display the input graph's edge visibility
   std::cout << "Input graph edge visiblity: " << std::endl;
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> gEdgeIteratorRange = edges(g); // Note this is the new graph
-  for(Graph::edge_iterator gEdgeIterator = gEdgeIteratorRange.first; gEdgeIterator != gEdgeIteratorRange.second; ++gEdgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> gEdgeIteratorRange = edges(g); // Note this is the new graph
+  for(boost::graph_traits<Graph>::edge_iterator gEdgeIterator = gEdgeIteratorRange.first; gEdgeIterator != gEdgeIteratorRange.second; ++gEdgeIterator)
     {
     std::cout << g[*gEdgeIterator].visible << " ";
     }
@@ -55,8 +56,8 @@ void Test(const Graph& g)
   
   // Display the copied graph's edge visibility
   std::cout << "Copied graph edge visiblity: " << std::endl;
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> copiedGraphEdgeIteratorRange = edges(copiedGraph); // Note this is the original graph
-  for(Graph::edge_iterator copiedGraphEdgeIterator = copiedGraphEdgeIteratorRange.first; copiedGraphEdgeIterator != copiedGraphEdgeIteratorRange.second; ++copiedGraphEdgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> copiedGraphEdgeIteratorRange = edges(copiedGraph); // Note this is the original graph
+  for(boost::graph_traits<Graph>::edge_iterator copiedGraphEdgeIterator = copiedGraphEdgeIteratorRange.first; copiedGraphEdgeIterator != copiedGraphEdgeIteratorRange.second; ++copiedGraphEdgeIterator)
     {
     std::cout << copiedGraph[*copiedGraphEdgeIterator].visible << " ";
     }
@@ -87,8 +88,8 @@ Graph CreateGraph()
   add_edge(17,18,g);
  
   // Set all edges to visible
-  std::pair<Graph::edge_iterator, Graph::edge_iterator> edgeIteratorRange = edges(g);
-  for(Graph::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
+  std::pair<boost::graph_traits<Graph>::edge_iterator, boost::graph_traits<Graph>::edge_iterator> edgeIteratorRange = edges(g);
+  for(boost::graph_traits<Graph>::edge_iterator edgeIterator = edgeIteratorRange.first; edgeIterator != edgeIteratorRange.second; ++edgeIterator)
     {
     g[*edgeIterator].visible = true;
     }

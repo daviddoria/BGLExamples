@@ -10,13 +10,13 @@ int main(int,char*[])
   Graph g;
   
   // Add vertices
-  Graph::vertex_descriptor v0 = g.add_vertex();
-  Graph::vertex_descriptor v1 = g.add_vertex();
-  Graph::vertex_descriptor v2 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v0 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v1 = g.add_vertex();
+  boost::graph_traits<Graph>::vertex_descriptor v2 = g.add_vertex();
 
   // Add edges
-  std::pair<Graph::edge_descriptor, bool> e0 = g.add_edge(v0, v1);
-  std::pair<Graph::edge_descriptor, bool> e1 = g.add_edge(v1, v2);
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> e0 = g.add_edge(v0, v1);
+  std::pair<boost::graph_traits<Graph>::edge_descriptor, bool> e1 = g.add_edge(v1, v2);
 
   std::cout << "There are " << g.num_edges() << " edges." << std::endl;
 
