@@ -2,7 +2,9 @@
 
 int main(int,char*[])
 {
-  // directed_graph is a subclass of adjacency_list which gives you object oriented access to functions like add_vertex and add_edge, which makes the code easier to understand. However, it hard codes many of the template parameters, so it is much less flexible.
+  // directed_graph is a subclass of adjacency_list which gives you object oriented access to functions
+  // like add_vertex and add_edge, which makes the code easier to understand. However, it hard codes many
+  // of the template parameters, so it is much less flexible.
 
   typedef boost::directed_graph<> Graph;
   Graph g;

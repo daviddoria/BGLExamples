@@ -10,7 +10,7 @@ struct vertex_id_filter
 {
   bool operator()(const typename boost::graph_traits<TGraph>::vertex_descriptor& v) const
   {
-    return 3 < v; // keep all vertx_descriptors greater than 3
+    return 3 < v; // keep all vertex_descriptors greater than 3
   }
 };
 
