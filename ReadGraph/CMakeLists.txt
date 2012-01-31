@@ -11,4 +11,4 @@ INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
 # target_link_libraries(ReadGraph boost_graph)
 
 ADD_EXECUTABLE(FixInput FixInput.cpp)
-target_link_libraries(FixInput boost_graph)
+target_link_libraries(FixInput boost_graph boost_regex)

@@ -11,4 +11,4 @@ INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
 # target_link_libraries(ReadGraph boost_graph)
 
 ADD_EXECUTABLE(RelabelInputVertices RelabelInputVertices.cpp)
-target_link_libraries(RelabelInputVertices boost_graph)
+target_link_libraries(RelabelInputVertices boost_graph boost_regex)
