@@ -1,0 +1,10 @@
+*~
+*.bak
+*.orig
+
+*.user*
+*.kdev*
+
+build/
+Build/
+BUILD/
