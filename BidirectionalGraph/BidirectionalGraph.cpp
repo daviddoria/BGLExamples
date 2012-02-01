@@ -8,10 +8,14 @@ typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS> G
 int main(int,char*[])
 {
   // Create a graph object
-  Graph g(3);
+  Graph g;
 
-  add_edge(0,1,g);
-  add_edge(1,2,g);
+  boost::graph_traits<Graph>::vertex_descriptor v0 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v1 = add_vertex(g);
+  boost::graph_traits<Graph>::vertex_descriptor v2 = add_vertex(g);
+
+  add_edge(v0,v1,g);
+  add_edge(v1,v2,g);
 
   // Get a list of incoming edges to vertex 1
   typedef boost::graph_traits < Graph >::in_edge_iterator in_edge_iterator;
@@ -19,21 +23,20 @@ int main(int,char*[])
   std::pair<in_edge_iterator, in_edge_iterator> inEdges = in_edges(1, g);
 
   std::cout << "In edges: " << std::endl;
-  for(; inEdges.first != inEdges.second; ++inEdges.first)
+  for(in_edge_iterator iter = inEdges.first; iter != inEdges.second; ++iter)
     {
-    //std::cout << index[*inEdges.first] << " ";
-    std::cout << *inEdges.first << " ";
+    std::cout << *iter << " ";
     }
 
-  std::cout << std::endl << "Out edges: " << std::endl;
+  
   // Get a list of outgoing edges from vertex 1
   typedef boost::graph_traits < Graph >::out_edge_iterator out_edge_iterator;
-  std::pair<out_edge_iterator, out_edge_iterator> outEdges =
-    out_edges(1, g);
+  std::pair<out_edge_iterator, out_edge_iterator> outEdges = out_edges(1, g);
 
-  for(; outEdges.first != outEdges.second; ++outEdges.first)
+  std::cout << std::endl << "Out edges: " << std::endl;
+  for(out_edge_iterator iter = outEdges.first; iter != outEdges.second; ++iter)
     {
-    std::cout << *outEdges.first << " ";
+    std::cout << *iter << " ";
     }
 
   std::cout << std::endl;

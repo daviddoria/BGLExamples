@@ -9,3 +9,4 @@ include_directories(${Boost_INCLUDE_DIRS})
 add_executable(CopyGraph CopyGraph.cpp)
 #target_link_libraries(CopyGraph ${Boost_LIBRARIES})
 
+add_executable(copy_graph copy_graph.cpp)
