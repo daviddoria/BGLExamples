@@ -5,20 +5,19 @@
 #include <boost/graph/graph_traits.hpp>
 #include <boost/graph/adjacency_list.hpp>
 
-typedef boost::property<boost::edge_weight_t, double> EdgeWeightProperty;
-
-/*
-// The parameters of adjacency_list are:
-
-adjacency_list<OutEdgeList, VertexList, Directed,
-               VertexProperties, EdgeProperties,
-               GraphProperties, EdgeList>
-*/
-// The 'S' stands for "Selector", meaning you are choosing/selecting/specifying the internal storage container.
-typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::no_property, EdgeWeightProperty> Graph;
-
 int main(int,char*[])
 {
+  typedef boost::property<boost::edge_weight_t, double> EdgeWeightProperty;
+
+  // The template parameters of adjacency_list are:
+
+  // adjacency_list<OutEdgeList, VertexList, Directed,
+  //                VertexProperties, EdgeProperties,
+  //                GraphProperties, EdgeList>
+
+  // The 'S' stands for "Selector", meaning you are choosing/selecting/specifying the internal storage container.
+  typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::no_property, EdgeWeightProperty> Graph;
+
   // Create a graph
   {
   Graph g(3);
@@ -47,12 +46,12 @@ int main(int,char*[])
   // Or this syntax:
   add_edge(1, 2, weight1, g);
 
-  // Prepare to iterate over edges
   boost::property_map<Graph, boost::edge_weight_t>::type EdgeWeightMap = get(boost::edge_weight_t(), g);
 
   typedef boost::graph_traits<Graph>::edge_iterator edge_iter;
-  std::pair<edge_iter, edge_iter> edgePair;
-  for(edgePair = edges(g); edgePair.first != edgePair.second; ++edgePair.first)
+
+  // Iterate over all edges
+  for( std::pair<edge_iter, edge_iter> edgePair = edges(g); edgePair.first != edgePair.second; ++edgePair.first)
     {
     // Output both vertices of the edge
     std::cout << "Edge: " << *(edgePair.first) << std::endl;
