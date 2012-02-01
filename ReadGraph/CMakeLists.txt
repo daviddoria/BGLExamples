@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(ReadGraph)
+project(ReadGraph)
 
-FIND_PACKAGE(Boost)
+find_package(Boost 1.46 COMPONENTS graph )
 
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
 
-# ADD_EXECUTABLE(ReadGraph ReadGraph.cpp)
-# target_link_libraries(ReadGraph boost_graph)
+# add_executable(ReadGraph ReadGraph.cpp)
+# target_link_libraries(ReadGraph ${Boost_LIBRARIES})
 
-ADD_EXECUTABLE(FixInput FixInput.cpp)
-target_link_libraries(FixInput boost_graph boost_regex)
+add_executable(FixInput FixInput.cpp)
+target_link_libraries(FixInput ${Boost_LIBRARIES})

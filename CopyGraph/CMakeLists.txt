@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(CopyGraph)
+project(CopyGraph)
 
-FIND_PACKAGE(Boost)
+find_package(Boost 1.46 COMPONENTS graph)
 
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(CopyGraph CopyGraph.cpp)
-target_link_libraries(CopyGraph boost_graph)
+add_executable(CopyGraph CopyGraph.cpp)
+#target_link_libraries(CopyGraph ${Boost_LIBRARIES})
 
