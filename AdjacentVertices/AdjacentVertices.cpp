@@ -3,17 +3,19 @@
 #include <boost/graph/adjacency_list.hpp>
 #include <boost/graph/adjacency_iterator.hpp>
 
-typedef boost::property<boost::vertex_property_tag, double> VertexProperty;
 
 /*
 adjacency_list<OutEdgeList, VertexList, Directed,
                VertexProperties, EdgeProperties,
                GraphProperties, EdgeList>
 */
-typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, VertexProperty> Graph;
 
 int main(int,char*[])
 {
+  typedef boost::property<boost::vertex_property_tag, double> VertexProperty;
+
+  typedef boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, VertexProperty> Graph;
+
   // Create a graph object
   Graph g(3);
 
@@ -24,7 +26,9 @@ int main(int,char*[])
   typedef boost::property_map<Graph, boost::vertex_index_t>::type IndexMap;
   IndexMap index = get(boost::vertex_index, g);
 
-  typedef boost::graph_traits < Graph >::adjacency_iterator adjacency_iterator;
+  typedef boost::graph_traits< Graph >::adjacency_iterator adjacency_iterator;
+
+  std::cout << "Adjacent neighbors of vertex 1 are:" << std::endl;
 
   std::pair<adjacency_iterator, adjacency_iterator> neighbors =
     boost::adjacent_vertices(vertex(1,g), g);
@@ -34,5 +38,7 @@ int main(int,char*[])
     std::cout << index[*neighbors.first] << " ";
     }
 
-  return 0;
+  std::cout << std::endl;
+
+  return EXIT_SUCCESS;
 }

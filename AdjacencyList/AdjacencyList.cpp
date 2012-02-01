@@ -57,10 +57,13 @@ int main(int,char*[])
     std::cout << "Edge: " << *(edgePair.first) << std::endl;
 
     // Output the vertices of the edge individually
-    std::cout << "Edge: " << source(*(edgePair.first), g) << " " << target(*(edgePair.first), g) << std::endl;
+    std::cout << "Source: " << source(*(edgePair.first), g) << std::endl;
+    std::cout << "Target: " << target(*(edgePair.first), g) << std::endl;
 
     // Output the weight of the current edge
     std::cout << "Weight: " << EdgeWeightMap[*edgePair.first] << std::endl;
+
+    std::cout << std::endl;
     }
 
   return EXIT_SUCCESS;
