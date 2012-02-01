@@ -4,8 +4,8 @@ project(CopyGraph)
 
 find_package(Boost 1.46 COMPONENTS graph)
 
-include_directories(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(CopyGraph CopyGraph.cpp)
-target_link_libraries(CopyGraph ${Boost_LIBRARIES})
+#target_link_libraries(CopyGraph ${Boost_LIBRARIES})
 
