@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(WriteGraph)
+project(WriteGraph)
 
 set(Boost_USE_MULTITHREADED ON)
-FIND_PACKAGE(Boost 1.38 COMPONENTS program_options required)
+find_package(Boost 1.46 COMPONENTS program_options graph)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories( ${Boost_INCLUDE_DIRS} )
 
-ADD_EXECUTABLE(WriteGraph WriteGraph.cpp)
-#target_link_libraries(WriteGraph boost_graph)
+add_executable(WriteGraph WriteGraph.cpp)
+target_link_libraries(WriteGraph ${Boost_LIBRARIES})
 

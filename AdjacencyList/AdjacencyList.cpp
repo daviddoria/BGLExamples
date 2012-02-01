@@ -22,28 +22,29 @@ int main(int,char*[])
   // Create a graph
   {
   Graph g(3);
-  
+
   // Add weighted edges. Can use this syntax:
   EdgeWeightProperty weight0(5);
   add_edge(0, 1, weight0, g);
   }
-  
+
   // Create a graph
   Graph g;
 
   boost::graph_traits<Graph>::vertex_descriptor v0 = boost::add_vertex(g);
   boost::graph_traits<Graph>::vertex_descriptor v1 = boost::add_vertex(g);
-  
+
   // Add weighted edges
   // Can use this syntax:
   EdgeWeightProperty weight0(5);
   // Or this syntax:
   EdgeWeightProperty weight1 = 3;
-  
+
   // Add an edge.
   // Can use this syntax:
   add_edge(v0, v1, weight0, g);
-  // Or this syntax:  
+
+  // Or this syntax:
   add_edge(1, 2, weight1, g);
 
   // Prepare to iterate over edges
@@ -52,16 +53,16 @@ int main(int,char*[])
   typedef boost::graph_traits<Graph>::edge_iterator edge_iter;
   std::pair<edge_iter, edge_iter> edgePair;
   for(edgePair = edges(g); edgePair.first != edgePair.second; ++edgePair.first)
-  {
+    {
     // Output both vertices of the edge
     std::cout << "Edge: " << *(edgePair.first) << std::endl;
-    
+
     // Output the vertices of the edge individually
     std::cout << "Edge: " << source(*(edgePair.first), g) << " " << target(*(edgePair.first), g) << std::endl;
-    
+
     // Output the weight of the current edge
     std::cout << "Weight: " << EdgeWeightMap[*edgePair.first] << std::endl;
-  }
+    }
 
-  return 0;
+  return EXIT_SUCCESS;
 }

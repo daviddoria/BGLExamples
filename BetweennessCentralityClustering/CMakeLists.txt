@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(BetweennessCentralityClustering)
+project(BetweennessCentralityClustering)
 
 set(Boost_USE_MULTITHREADED ON)
-FIND_PACKAGE(Boost 1.38 COMPONENTS required)
+find_package(Boost 1.46 )
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(BetweennessCentralityClustering BetweennessCentralityClustering.cpp)
+add_executable(BetweennessCentralityClustering BetweennessCentralityClustering.cpp)
 

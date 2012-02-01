@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(RelabelInputVertices)
+project(RelabelInputVertices)
 
-FIND_PACKAGE(Boost)
+find_package(Boost 1.46 COMPONENTS graph)
 
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
 # ADD_EXECUTABLE(ReadGraph ReadGraph.cpp)
 # target_link_libraries(ReadGraph boost_graph)
 
-ADD_EXECUTABLE(RelabelInputVertices RelabelInputVertices.cpp)
-target_link_libraries(RelabelInputVertices boost_graph boost_regex)
+add_executable(RelabelInputVertices RelabelInputVertices.cpp)
+target_link_libraries(RelabelInputVertices ${Boost_LIBRARIES})
