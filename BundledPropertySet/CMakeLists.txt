@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(BundledPropertySet)
+project(BundledPropertySet)
 
-FIND_PACKAGE(Boost)
+find_package(Boost)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(BundledPropertySet BundledPropertySet.cpp)
+add_executable(BundledPropertySet BundledPropertySet.cpp)
 
 
