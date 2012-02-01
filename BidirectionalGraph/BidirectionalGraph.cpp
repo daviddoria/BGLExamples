@@ -15,7 +15,10 @@ int main(int,char*[])
   boost::graph_traits<Graph>::vertex_descriptor v2 = add_vertex(g);
 
   add_edge(v0,v1,g);
+  add_edge(v1,v0,g);
+  
   add_edge(v1,v2,g);
+  add_edge(v2,v1,g);
 
   // Get a list of incoming edges to vertex 1
   typedef boost::graph_traits < Graph >::in_edge_iterator in_edge_iterator;
