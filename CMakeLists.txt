@@ -7,6 +7,8 @@ find_package(Boost 1.46 REQUIRED)
 
 include_directories(BEFORE ${Boost_INCLUDE_DIRS})
 
+set( CMAKE_RUNTIME_OUTPUT_DIRECTORY ${BGLExamples_BINARY_DIR}/bin )
+
 add_subdirectory(AdjacencyList)
 add_subdirectory(BidirectionalGraph)
 add_subdirectory(DijkstraUndirected)
