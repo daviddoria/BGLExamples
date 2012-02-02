@@ -1,13 +1,10 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(GridGraphVertexIterator)
+project(GridGraphVertexIterator)
 
 set(Boost_USE_MULTITHREADED ON)
-FIND_PACKAGE(Boost 1.38 COMPONENTS )
+find_package(Boost 1.46)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(GridGraphVertexIterator GridGraphVertexIterator.cpp)
-
-
+add_executable(GridGraphVertexIterator GridGraphVertexIterator.cpp)

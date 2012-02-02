@@ -1,13 +1,10 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(PropertyMap)
+project(PropertyMap)
 
 set(Boost_USE_MULTITHREADED ON) # which is the default
-FIND_PACKAGE(Boost 1.38 COMPONENTS)
+find_package(Boost 1.46)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(PropertyMap PropertyMap.cpp)
-target_link_libraries(PropertyMap)
-
+add_executable(PropertyMap PropertyMap.cpp)

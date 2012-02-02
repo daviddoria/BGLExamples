@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 project(AdjacentVertices)
 
 set(Boost_USE_MULTITHREADED ON)
-find_package(Boost 1.38 COMPONENTS required)
+find_package(Boost 1.46)
 
 include_directories(${Boost_INCLUDE_DIRS})
 

@@ -1,10 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(SetAllWeights)
+project(SetAllWeights)
 
-FIND_PACKAGE(Boost)
+find_package(Boost 1.46)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(SetAllWeights SetAllWeights.cpp)
+add_executable(SetAllWeights SetAllWeights.cpp)

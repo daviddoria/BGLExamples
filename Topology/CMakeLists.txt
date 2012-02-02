@@ -1,13 +1,10 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(Topology)
+project(Topology)
 
 set(Boost_USE_MULTITHREADED ON)
-FIND_PACKAGE(Boost 1.38 COMPONENTS)
+find_package(Boost 1.46)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(Topology Topology.cpp)
-
-
+add_executable(Topology Topology.cpp)
