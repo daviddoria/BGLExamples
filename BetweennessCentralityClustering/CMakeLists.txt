@@ -5,7 +5,7 @@ project(BetweennessCentralityClustering)
 set(Boost_USE_MULTITHREADED ON)
 find_package(Boost 1.46 )
 
-include_directories(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
 add_executable(BetweennessCentralityClustering BetweennessCentralityClustering.cpp)
 

@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(DijkstraUndirected)
+project(DijkstraUndirected)
 
 set(Boost_USE_MULTITHREADED ON)
-FIND_PACKAGE(Boost 1.38 COMPONENTS program_options required)
+find_package(Boost 1.46)
 
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(DijkstraUndirected DijkstraUndirected.cpp)
+add_executable(DijkstraUndirected DijkstraUndirected.cpp)
 
-ADD_EXECUTABLE(DijkstraUndirected_SimpleProperty DijkstraUndirected_SimpleProperty.cpp)
+add_executable(DijkstraUndirected_SimpleProperty DijkstraUndirected_SimpleProperty.cpp)

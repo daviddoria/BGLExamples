@@ -1,11 +1,9 @@
 cmake_minimum_required(VERSION 2.6)
 
-Project(TravelingSalesman)
+project(TravelingSalesman)
 
-FIND_PACKAGE(Boost)
+find_package(Boost 1.46)
 
-LINK_DIRECTORIES(${LINK_DIRECTORIES} ${Boost_LIBRARY_DIRS})
-INCLUDE_DIRECTORIES(${INCLUDE_DIRECTORIES} ${Boost_INCLUDE_DIRS})
+include_directories(${Boost_INCLUDE_DIRS})
 
-ADD_EXECUTABLE(TravelingSalesman TravelingSalesman.cpp)
-
+add_executable(TravelingSalesman TravelingSalesman.cpp)
